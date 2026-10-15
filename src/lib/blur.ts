@@ -6,10 +6,8 @@
 export const blurPlaceholders: Record<string, string> = {
   "/photos/Hamnah-zahid.webp":
     "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAQCdASoIAAwAAwBSJQBOgB57cVfFjAD+9BIR2UKIOzXAQUYKCjLCMnb7PA1N5OUhumJz6p+/zFspuz8zyU+nL9EF7E14YSJox6Ii7gSQMwTWPadiQAAA",
-  "/photos/elegant-yamnah-zahid-figure.webp":
-    "data:image/webp;base64,UklGRrQAAABXRUJQVlA4WAoAAAAQAAAACwAACAAAQUxQSEgAAAABYBPZtpP7CQ6iBgYRVHhAACK+FqrU06EkJw/0zK3e+x4iYgIAVPsYQvcWsnHEJJ9Cy0iyU6JJvIGwVK2YqZeA/zlaIKfjrwFWUDggRgAAALABAJ0BKgwACQADAFIlAF2AGtuECcAA/ky/MR4GiotBPy6fMF4yN0/84l1lzeBP06fWWx5v/ghgSoxTjFLBAIS1yvzQAAA=",
-  "/photos/elegant-yamnah-zahid.webp":
-    "data:image/webp;base64,UklGRpQAAABXRUJQVlA4WAoAAAAQAAAACwAABAAAQUxQSDsAAAABf6AmkiQ1eYwffXhmHiIiAHnlFz2xx0YRjCJJipQ/NKDldoIVHOEFEaiAXRsR/Q/MCHvAWXD/QP//BABWUDggMgAAANABAJ0BKgwABQADAFIlnAAC62y+sNhgAP7o31R37Ouy7j82G/PHcsBZuKTZLOoClDQA",
+  "/photos/elegant-yamnah-zahid-figure.png":
+    "data:image/webp;base64,UklGRvoAAABXRUJQVlA4WAoAAAAQAAAACwAACQAAQUxQSGsAAAABcFNt27I83/f957BZCfcqJGCDDNDBc7jvvrEx20aA318eLERETAAUTPucgwYAgwZ5ikDhd0ObdRhAQW/pB0EVBgrJK0OPLVhA8clQAl4SUGjSFZGAQwsY0xcR8VhD9MHwx+fCqgSvP+JzAABWUDggaAAAAFACAJ0BKgwACgADAFIlkAJ0Bit0tbiL9H8GgAD+wnGvkJab9WmAG2oNAaazUNh8MXAK1bHt8tr3/DdwuH98HdDyXRGCb9deLMTw5g+4x9EJz+HvTfGsEXOGHeKFrg7fU9rnYQhe6AAA",
   "/photos/portrait-about.jpg":
     "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABQAgCdASoIAAwAAwBSJaACdAYqDy387eqKQAAA8p/SzOvFwPEWd1E5porNraXVwhjgJqpRDKymWJOTTV8kwpuhEAir4pmrcuGY3K8wyI2NugAA",
   "/photos/portrait-hero.jpg":

@@ -124,17 +124,18 @@ h1,h2,h3,h4,h5,h6{ transition:color .25s ease; }
 #top .hero-side span,#top .hero-side em{ display:block; }
 #top .hero-side span::before,#top .hero-side em::before{ content:''; display:inline-block; width:5px; height:5px; margin:0 9px 2px 0; border-radius:50%; background:#820076; vertical-align:middle; }
 #top .hero-side em{ color:var(--bronze); font-style:normal; font-weight:500; }
-/* The cut-out sits on the stage with no frame; multiply lets its white studio
-   backdrop dissolve into the section colour instead of showing as a box. */
+/* The cut-out sits on the stage with no frame. The PNG carries real alpha, so
+   multiply is no longer there to dissolve a white backdrop - it now mutes the
+   pale matte fringe left around her hair by the cut-out. */
 #top .hero-img-wrap{ align-self:stretch; }
 #top .hero-portrait{
   position:relative;
   z-index:2;
-  width:145%;
-  max-width:980px;
-  margin-left:-24%;
-  margin-bottom:-3%;
-  aspect-ratio:1.18;
+  width:100%;
+  max-width:520px;
+  margin:0 auto;
+  /* the cut-out's own 993x789, so the frame never letterboxes her */
+  aspect-ratio:993/789;
   border:0;
   border-radius:0;
   background:transparent;
@@ -1621,47 +1622,32 @@ input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
   .case-project-link:hover{transform:none;}
 }
 
-/* hero portrait below the desktop composition: the figure sits in its own
-   stage under the copy. The source is a 2.53:1 cut-out with the subject at
-   roughly 72% of its width, so the crop window is centred on her (92%) rather
-   than pinned to the right edge, and the arc is placed over her head rather
-   than over the middle of the frame. */
+/* The cut-out fills its own frame edge to edge, so it sits in the layout at
+   every size - in the right-hand column on desktop, under the copy below it -
+   rather than being composed against the whole hero as the old wide canvas was.
+   The arc is centred on her head in each case. */
 @media(max-width:1023px){
-  #top .hero-portrait{
-    position:relative;
-    right:auto;
-    bottom:auto;
-    width:100%;
-    max-width:520px;
-    aspect-ratio:1.39;
-    margin:0 auto;
-  }
-  #top .hero-portrait-img{object-fit:contain;object-position:center bottom;}
-  #top .hero-ring{top:34%;left:50%;width:min(62%,300px);transform:translate(-50%,-50%);}
+  #top .hero-portrait{max-width:480px;}
+  #top .hero-ring{top:40%;left:50%;width:min(58%,290px);transform:translate(-50%,-50%);}
 }
 @media(max-width:767px){
   #top .hero-shell{row-gap:1rem;padding-bottom:0;}
-  #top .hero-portrait{max-width:430px;aspect-ratio:1.39;margin-bottom:0;}
-  #top .hero-portrait-img{object-position:center bottom;}
-  #top .hero-ring{top:62%;left:60%;width:min(50%,210px);border-width:2px;}
+  #top .hero-portrait{max-width:420px;}
+  #top .hero-ring{top:40%;left:50%;width:min(56%,240px);border-width:2px;}
   #top > .hero-el{padding-bottom:0;}
   #top .hero-stats{gap:1.1rem;}
   #top .hero-stat + .hero-stat{padding-left:1.1rem;}
 }
 /* small phones: let her fill the column width so she does not shrink away */
 @media(max-width:480px){
-  #top .hero-portrait{max-width:none;aspect-ratio:1.39;}
-  #top .hero-portrait-img{object-position:center bottom;}
-  #top .hero-ring{top:62%;left:60%;width:min(50%,210px);}
+  #top .hero-portrait{max-width:none;}
+  #top .hero-ring{top:40%;left:50%;width:min(56%,210px);}
 }
 
-/* The wide transparent cutout is composed against the full desktop hero so
-   its alpha edge can dissolve into the page and the figure reaches the baseline. */
 @media(min-width:1024px){
-  #top .hero-shell{position:static;max-width:none;}
-  #top .hero-img-wrap{position:absolute;z-index:0;inset:0;width:100%;height:100%;margin:0;pointer-events:none;}
-  #top .hero-portrait{position:absolute;right:0;bottom:0;width:max(100vw,240svh);max-width:none;margin:0;aspect-ratio:1994/789;}
-  #top .hero-ring{top:58%;right:12%;left:auto;width:min(25vw,500px);border-width:4px;transform:translateY(-50%);}
+  /* she takes the full column and sits on the section's baseline */
+  #top .hero-portrait{max-width:none;width:min(100%,640px);margin:0 0 0 auto;}
+  #top .hero-ring{top:38%;left:52%;width:min(60%,360px);border-width:3px;transform:translate(-50%,-50%);}
 }
 
 @keyframes hero-figure-in{from{opacity:0}to{opacity:1}}
