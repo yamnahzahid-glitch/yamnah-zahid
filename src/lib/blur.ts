@@ -4,6 +4,8 @@
  * slow network shows a soft colour impression instead of an empty frame.
  */
 export const blurPlaceholders: Record<string, string> = {
+  "/photos/Hamnah-zahid.webp":
+    "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAQCdASoIAAwAAwBSJQBOgB57cVfFjAD+9BIR2UKIOzXAQUYKCjLCMnb7PA1N5OUhumJz6p+/zFspuz8zyU+nL9EF7E14YSJox6Ii7gSQMwTWPadiQAAA",
   "/photos/elegant-yamnah-zahid-figure.webp":
     "data:image/webp;base64,UklGRrQAAABXRUJQVlA4WAoAAAAQAAAACwAACAAAQUxQSEgAAAABYBPZtpP7CQ6iBgYRVHhAACK+FqrU06EkJw/0zK3e+x4iYgIAVPsYQvcWsnHEJJ9Cy0iyU6JJvIGwVK2YqZeA/zlaIKfjrwFWUDggRgAAALABAJ0BKgwACQADAFIlAF2AGtuECcAA/ky/MR4GiotBPy6fMF4yN0/84l1lzeBP06fWWx5v/ghgSoxTjFLBAIS1yvzQAAA=",
   "/photos/elegant-yamnah-zahid.webp":

@@ -167,10 +167,10 @@ function AboutSection() {
                 sizes="(min-width: 1024px) 40vw, 88vw"
                 className="about-portrait-image"
                 data-parallax
-                src="/photos/portrait-about.jpg"
+                src="/photos/Hamnah-zahid.webp"
                 alt="Editorial portrait photograph"
                 placeholder="blur"
-                blurDataURL={blurFor("/photos/portrait-about.jpg")}
+                blurDataURL={blurFor("/photos/Hamnah-zahid.webp")}
               />
               <figcaption className="about-photo-caption">
                 <span className="about-caption-mark" aria-hidden="true">YZ</span>

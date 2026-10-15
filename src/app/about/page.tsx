@@ -99,13 +99,13 @@ export default function AboutPage() {
             </div>
             <figure className="about-page-portrait">
               <Image
-                src="/photos/portrait-about.jpg"
+                src="/photos/Hamnah-zahid.webp"
                 alt="Editorial portrait representing Yumnah Zahid"
                 fill
                 priority
                 sizes="(min-width: 1024px) 42vw, 90vw"
                 placeholder="blur"
-                blurDataURL={blurFor("/photos/portrait-about.jpg")}
+                blurDataURL={blurFor("/photos/Hamnah-zahid.webp")}
               />
               <figcaption><span>Yumnah Zahid</span><span>Creative Marketer /Brand Storyteller/Content Strategist</span></figcaption>
             </figure>
