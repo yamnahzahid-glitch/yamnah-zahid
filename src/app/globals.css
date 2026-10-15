@@ -1101,6 +1101,59 @@ input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
   .resume-trigger .rcard{aspect-ratio:auto;min-height:min(126vw,620px);}
 }
 
+/* ---- phones: the miniature sheet stops working ----
+   At phone width the card is ~300px wide, and every size inside it is in
+   container units, so the body type lands at 6-7px while the absolutely
+   positioned layer silently clips whatever does not fit the fixed height.
+   On /resume the sheet IS the content, so it stops being a scaled replica of
+   an A4 page and becomes a plain single-column document at readable sizes. */
+@media(max-width:680px){
+  .resume-page .resume-trigger{padding:0;}
+  .resume-page .resume-trigger .rcard{
+    aspect-ratio:auto;min-height:0;overflow:visible;
+    border:0;border-radius:0;box-shadow:none;
+  }
+  .resume-page .resume-trigger .rcard-rest{display:none;}
+  .resume-page .resume-trigger .rcard-full{
+    position:static;inset:auto;overflow:visible;opacity:1;padding:1.5rem 1.25rem;
+  }
+  .resume-page .resume-trigger-cue{margin:0;border-width:1px 0 0;border-radius:0;}
+
+  /* one column, nothing side by side at 320-680px */
+  .resume-page .rcard-top,.resume-page .rcard-body{grid-template-columns:minmax(0,1fr);gap:1.25rem;}
+  .resume-page .rcard-entry{grid-template-columns:minmax(0,1fr);gap:.15rem;margin-bottom:1.1rem;}
+  .resume-page .rcard-col-side{
+    padding-top:1.25rem;padding-left:0;border-top:1px solid var(--line);border-left:0;
+  }
+
+  /* readable type, not container-relative type */
+  .resume-page .rcard-name{font-size:1.5rem;}
+  .resume-page .rcard-title{font-size:.68rem;}
+  .resume-page .rcard-summary{max-width:none;font-size:.9rem;}
+  .resume-page .rcard-contact{gap:.5rem;}
+  /* the address no longer has to survive in a 90px column, so let it wrap */
+  .resume-page .rcard-contact>span{white-space:normal;overflow:visible;text-overflow:clip;font-size:.85rem;}
+  .resume-page .rcard-contact i{width:15px;}
+  .resume-page .rcard-label{font-size:.68rem;}
+  .resume-page .rcard-period{font-size:.75rem;}
+  .resume-page .rcard-role{font-size:.95rem;}
+  .resume-page .rcard-company{font-size:.85rem;}
+  .resume-page .rcard-points{gap:.3rem;margin-top:.4rem;}
+  .resume-page .rcard-points>span{padding-left:.85rem;font-size:.85rem;}
+  .resume-page .rcard-chips{gap:.4rem;}
+  .resume-page .rcard-chips>span{font-size:.8rem;}
+  .resume-page .rcard-tools{gap:.4rem;}
+  .resume-page .rcard-tools>span{font-size:.85rem;}
+  .resume-page .rcard-tools i{width:12px;height:12px;}
+}
+
+/* The landing-page teaser keeps its card shape, so on a phone it shows the
+   resting document rather than the dense sheet it cannot render legibly. */
+@media(max-width:680px) and (hover:none){
+  .resume-doc .rcard-rest{opacity:1;}
+  .resume-doc .rcard-full{opacity:0;}
+}
+
 /* The dark band already closes the previous block, so the resume section does
    not need its own top padding or divider rule when it follows one. */
 .saha-section + .resume-section{padding-top:var(--section-y-tight);}

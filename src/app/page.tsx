@@ -67,6 +67,17 @@ const strengths = [
   "Copywriting",
 ];
 
+/* The hero is art-directed: phones get the tighter 1.39:1 crop of the figure,
+   desktop the 2.53:1 composition. */
+const HERO_PORTRAIT_MOBILE = "/photos/elegant-yamnah-zahid-figure.webp";
+const HERO_PORTRAIT_DESKTOP = "/photos/elegant-yamnah-zahid.webp";
+
+/* Widths must come from next.config's deviceSizes, or the optimiser 400s. */
+const optimisedSrcSet = (src: string, widths = [640, 750, 828, 1080], quality = 75) =>
+  widths
+    .map((w) => `/_next/image?url=${encodeURIComponent(src)}&w=${w}&q=${quality} ${w}w`)
+    .join(", ");
+
 function Eyebrow({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <p className={`eyebrow ${className}`}>{children}</p>;
 }
@@ -100,16 +111,26 @@ function HeroSection() {
           <span className="hero-ring" aria-hidden="true" />
           <div className="hero-portrait relative">
             <picture>
+              {/* <source> is the only way to swap the file itself, and it is
+                  outside next/image's reach - so it carries its own optimiser
+                  srcset. A bare srcSet here ships the full-size original to
+                  every phone. */}
               <source
                 media="(max-width: 1023px)"
-                srcSet="/photos/elegant-yamnah-zahid-figure.webp"
+                sizes="92vw"
+                srcSet={optimisedSrcSet(HERO_PORTRAIT_MOBILE)}
               />
               <Image
                 fill
-                priority
-                sizes="(min-width: 1024px) 100vw, 92vw"
+                /* Not `priority`: the preload it emits carries no media query,
+                   so phones were preloading the desktop crop they never show
+                   and then downloading the mobile one as well. The picture sits
+                   at the top of the document, so eager + high is enough. */
+                loading="eager"
+                fetchPriority="high"
+                sizes="100vw"
                 className="hero-portrait-img"
-                src="/photos/elegant-yamnah-zahid.webp"
+                src={HERO_PORTRAIT_DESKTOP}
                 alt="Portrait of Yumnah Zahid"
               />
             </picture>
