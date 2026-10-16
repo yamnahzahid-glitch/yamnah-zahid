@@ -112,7 +112,9 @@ h1,h2,h3,h4,h5,h6{ transition:color .25s ease; }
 .arch{ border-radius:999px 999px 8px 8px; }
 
 /* ============ editorial hero ============ */
-#top{ background:var(--surface-alt); color:var(--ink); min-height:100svh; }
+/* a shade under the viewport, so the marquee band below it is already in
+   view at the fold instead of sitting exactly on it */
+#top{ background:var(--surface-alt); color:var(--ink); min-height:92svh; }
 #top .hero-shell{ max-width:1600px; }
 /* .hero-title takes the shared h1 type scale; only its colour accent is local. */
 #top .hero-title .accent{ color:var(--bronze); }
@@ -125,48 +127,46 @@ h1,h2,h3,h4,h5,h6{ transition:color .25s ease; }
 #top .hero-side span::before,#top .hero-side em::before{ content:''; display:inline-block; width:5px; height:5px; margin:0 9px 2px 0; border-radius:50%; background:#820076; vertical-align:middle; }
 #top .hero-side em{ color:var(--bronze); font-style:normal; font-weight:500; }
 /* The cut-out sits on the stage with no frame. The PNG carries real alpha, so
-   multiply is no longer there to dissolve a white backdrop - it now mutes the
-   pale matte fringe left around her hair by the cut-out. */
+   nothing here has to dissolve a backdrop: she is composited straight onto the
+   hero, with the brand arc behind her and a soft shadow off her own outline. */
 #top .hero-img-wrap{ align-self:stretch; }
+/* The arch frame is the About portrait's treatment, filled with the brand
+   purple: she is a cut-out, so the panel becomes the backdrop she stands on,
+   with a thin brand outline offset behind it. */
 #top .hero-portrait{
   position:relative;
   z-index:2;
   width:100%;
-  max-width:520px;
+  max-width:460px;
   margin:0 auto;
-  /* the cut-out's own 993x789, so the frame never letterboxes her */
-  aspect-ratio:993/789;
+  padding:0 18px 18px 0;
+}
+#top .hero-portrait::before{
+  position:absolute;
+  inset:18px 0 0 18px;
+  border:1px solid rgba(130,0,118,.35);
+  border-radius:46% 46% 8px 8px;
+  content:"";
+}
+#top .hero-portrait-frame{
+  position:relative;
+  display:block;
+  isolation:isolate;
+  overflow:hidden;
+  aspect-ratio:.84;
   border:0;
-  border-radius:0;
-  background:transparent;
-  box-shadow:none;
+  border-radius:46% 46% 8px 8px;
+  background:var(--bronze);
+  box-shadow:0 28px 72px rgba(29,12,23,.18);
 }
 #top .hero-portrait-img{
-  /* contain, not cover: she is a cut-out, so the whole figure stays intact and
-     sits on the baseline with the arc behind her. */
-  object-fit:contain;
-  object-position:center bottom;
+  /* a full photograph now, so it fills the arch the way the About portrait
+     does. 55% pulls the crop window down the source, trimming the headroom
+     above her without letting the arch curve cut into her hair. */
+  object-fit:cover;
+  object-position:center 55%;
   z-index:2;
-  /* Next paints a blur placeholder as a cover-sized background on the element.
-     With object-fit:contain that fills the whole frame and multiply darkens it,
-     which read as a black wash on reload - so the hero opts out and fades in. */
-  background:none!important;
   animation:hero-figure-in .45s ease both;
-  mix-blend-mode:multiply;
-  filter:saturate(.94) contrast(1.02);
-}
-/* the brand arc behind her */
-#top .hero-ring{
-  position:absolute;
-  z-index:1;
-  top:55%;
-  left:50%;
-  width:min(82%,560px);
-  aspect-ratio:1;
-  transform:translate(-49%,-50%);
-  border:2px solid var(--bronze);
-  border-radius:50%;
-  pointer-events:none;
 }
 #top .hero-line{ background:#1D0C1733; }
 #top .hero-stats{ width:max-content; max-width:100%; background:transparent; border:0; padding:0; box-shadow:none; }
@@ -185,7 +185,7 @@ h1,h2,h3,h4,h5,h6{ transition:color .25s ease; }
 .about-location{color:var(--text-subtle);font-size:10px;letter-spacing:.16em;text-transform:uppercase;}
 .about-location span{margin:0 .65rem;color:var(--bronze);}
 .about-layout{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);align-items:center;gap:clamp(3rem,7vw,7.5rem);}
-.about-portrait-wrap{position:relative;width:100%;max-width:590px;margin:0 auto;padding:0 18px 18px 0;}
+.about-portrait-wrap{position:relative;width:100%;max-width:470px;margin:0 auto;padding:0 18px 18px 0;}
 .about-portrait-wrap::before{position:absolute;inset:18px 0 0 18px;border:1px solid rgba(130,0,118,.35);border-radius:46% 46% 8px 8px;content:"";}
 .about-portrait-frame{position:relative;isolation:isolate;overflow:hidden;aspect-ratio:.84;border:1px solid rgba(29,12,23,.12);border-radius:46% 46% 8px 8px;background:var(--surface-sunken);box-shadow:0 28px 72px rgba(29,12,23,.13);}
 .about-portrait-image{object-fit:cover;object-position:center 28%;filter:saturate(.82) contrast(1.03);transition:transform 1s var(--ease),filter .6s ease;}
@@ -202,7 +202,8 @@ h1,h2,h3,h4,h5,h6{ transition:color .25s ease; }
 #about .about-title .about-title-static{display:inline;color:var(--ink)!important;}
 /* Deliberate exception, like the hero accent: the typed word is an animated
    element, so it carries the brand purple together with its caret. */
-#about .about-title .about-role,#about .about-title:hover .about-role{position:relative;display:inline-block;max-width:100%;padding-right:.12em;color:var(--bronze)!important;font-style:normal;}
+#about .about-title{min-height:2.1em;}
+#about .about-title .about-role,#about .about-title:hover .about-role{position:relative;display:inline-block;max-width:100%;padding-right:.12em;color:var(--bronze)!important;font-style:normal;overflow-wrap:anywhere;}
 .about-role::after{position:absolute;top:.1em;right:0;width:2px;height:.82em;background:var(--bronze);content:"";animation:about-caret 1s steps(2,end) infinite;}
 @keyframes about-caret{50%{opacity:0;}}
 .about-intro,.about-followup{max-width:62ch;color:var(--text-muted);font-size:clamp(.95rem,1.2vw,1.08rem);line-height:1.8;}
@@ -214,6 +215,7 @@ h1,h2,h3,h4,h5,h6{ transition:color .25s ease; }
 .about-details strong{color:var(--ink);font-size:12px;font-weight:500;}
 @media(max-width:1023px){
   .about-layout{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,4rem);}
+  .about-portrait-wrap{max-width:420px;}
   .about-location{font-size:9px;}
 }
 @media(max-width:767px){
@@ -221,11 +223,20 @@ h1,h2,h3,h4,h5,h6{ transition:color .25s ease; }
   .about-heading-row{margin-bottom:2rem;}
   .about-location{max-width:48%;text-align:right;line-height:1.6;}
   .about-layout{grid-template-columns:minmax(0,1fr);gap:2.5rem;}
-  .about-portrait-wrap{width:min(88%,440px);padding:0 14px 14px 0;}
+  .about-portrait-wrap{width:min(86%,380px);padding:0 14px 14px 0;}
   .about-portrait-wrap::before{inset:14px 0 0 14px;}
   #about .about-title,#about .about-title *{font-size:var(--type-section);}
   .about-copy{padding:0;}
   .about-details>div{grid-template-columns:92px minmax(0,1fr);}
+}
+@media(max-width:480px){
+  .about-portrait-wrap{width:min(94%,300px);padding:0 10px 10px 0;}
+  .about-portrait-wrap::before{inset:10px 0 0 10px;}
+  .about-photo-caption{gap:10px;padding:1rem 1.1rem;}
+  .about-caption-mark{width:36px;height:36px;font-size:11px;}
+  .about-photo-caption strong{font-size:13.5px;}
+  .about-photo-caption small{font-size:8px;letter-spacing:.14em;}
+  .about-details>div{grid-template-columns:minmax(0,1fr);gap:.2rem;}
 }
 @media(prefers-reduced-motion:reduce){.about-portrait-image,.about-role::after{animation:none;transition:none;}}
 
@@ -268,6 +279,10 @@ h1,h2,h3,h4,h5,h6{ transition:color .25s ease; }
 .tool-powerpoint{color:#D35230}.tool-excel{color:#217346}.tool-analytics{color:#E37400}.tool-meta{color:#0866FF}.tool-canva{color:#00A8B5}.tool-imagine{color:#820076}.tool-adobe{color:#E2231A}
 .tool-powerbi{color:#C9A227}.tool-python{color:#3776AB}.tool-sql{color:#5C6B73}.tool-office{color:#D83B01}
 .tool-chip:hover .tool-mark{border-color:#820076;background:#FFFFFF;color:#820076}
+.tool-mark-logo{ border-color:rgba(29,12,23,.14); padding:6px; }
+.tool-mark-logo img{ width:100%; height:100%; object-fit:contain; display:block; }
+.tool-chip:hover .tool-mark-logo{ border-color:rgba(130,0,118,.45); }
+.eyebrow-mark{ display:inline-block; background:#820076; border-radius:2px; box-shadow:none; color:#FFFFFF; font-size:15px; letter-spacing:.2em; line-height:1.35; padding:.12em .28em; }
 .skill-chip{ display:flex; align-items:center; gap:10px; border:1px solid rgba(29,12,23,.12); border-radius:999px; background:#FFFFFF; padding:12px 14px; color:#1D0C17; font-size:13px; line-height:1.3; transition:background .25s ease,border-color .25s ease,color .25s ease; }
 .skill-chip::before{ content:''; width:6px; height:6px; flex:none; border-radius:50%; background:#820076; }
 .skill-chip:hover{ border-color:#820076; background:#820076; color:#FFFFFF; }
@@ -678,8 +693,8 @@ body.js-enabled .hero-img-wrap.is-visible{clip-path:inset(0 0 0 0);}
 .about-page-work-link span{color:var(--bronze);font-size:1rem;transition:transform .2s;}
 .about-page-work-link:hover{color:var(--bronze);}
 .about-page-work-link:hover span{transform:translate(2px,-2px);}
-.about-page-portrait{width:100%;min-height:0;height:min(650px,72svh);aspect-ratio:auto;border-radius:48% 48% 4px 4px;}
-.about-page-portrait::before{inset:12px -12px -12px 12px;}
+.about-page-portrait{width:88%;justify-self:center;min-height:0;height:min(570px,64svh);aspect-ratio:auto;border-radius:48% 48% 4px 4px;}
+.about-page-portrait::before{inset:8px -8px -8px 8px;}
 .about-page-portrait figcaption{padding:1rem 1.2rem;}
 @media(max-width:900px){.about-page-hero{padding-top:7.5rem}.about-page-hero-grid{grid-template-columns:minmax(0,1fr) minmax(280px,.82fr);gap:2.25rem}.about-page-hero h1{font-size:clamp(3.5rem,7vw,5.2rem)}.about-page-portrait{height:min(580px,68svh)}}
 @media(max-width:680px){.about-page-hero{padding:7.25rem 0 3.5rem}.about-page-hero-grid{grid-template-columns:1fr;gap:2rem}.about-page-hero-copy{padding:0}.about-page-hero h1{font-size:clamp(3.25rem,14vw,5rem)}.about-page-portrait{width:min(100%,460px);height:auto;min-height:0;aspect-ratio:.88;margin:0 auto}.about-page-portrait::before{inset:8px -8px -8px 8px}.about-page-hero-actions{gap:1rem 1.2rem}.about-page-link{font-size:8px}}
@@ -691,6 +706,10 @@ body.js-enabled .hero-img-wrap.is-visible{clip-path:inset(0 0 0 0);}
 .about-page h1,.about-page h2,.about-page h3{font-family:var(--font-display);font-weight:600;letter-spacing:-.035em;color:var(--ink);transition:color .25s ease;}
 .about-page h1{font-size:clamp(3.4rem,6.2vw,6.4rem);letter-spacing:-.055em;line-height:.94;}
 .about-page h2{font-size:var(--type-section);letter-spacing:-.035em;line-height:1.02;}
+
+@media(min-width:901px){
+  .about-page-portrait{width:78%;height:min(520px,60svh);}
+}
 .about-page h3{font-size:var(--type-card);letter-spacing:-.03em;line-height:1.08;}
 .about-page h1 em,.about-page h2 em,.about-page h3 em{font-weight:500;}
 .about-page .about-page-hero h1{max-width:none;}
@@ -882,6 +901,9 @@ main h1 *,main h2 *,main h3 *,main h4 *,main h5 *,main h6 *{
 .saha-card-orbit{position:absolute;top:-18%;right:-14%;z-index:0;width:min(74%,320px);color:#d78bd0;opacity:.5;pointer-events:none;transition:transform 1.1s var(--ease),opacity .5s ease;}
 .saha-card-orbit svg{display:block;width:100%;height:auto;}
 .saha-card:hover .saha-card-orbit{transform:rotate(8deg) scale(1.05);opacity:.75;}
+.saha-card-proof{position:relative;z-index:1;display:block;overflow:hidden;margin-bottom:1.5rem;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(0,0,0,.32);}
+.saha-card-proof img{display:block;width:100%;height:auto;aspect-ratio:4 / 3;object-fit:cover;object-position:center top;}
+.saha-card-proof-cap{display:block;border-top:1px solid rgba(255,255,255,.12);padding:.65rem .85rem;color:var(--text-on-dark-subtle);font-size:8px;letter-spacing:.18em;line-height:1.5;text-transform:uppercase;}
 .saha-card-head{position:relative;z-index:1;display:block;padding-bottom:1.3rem;border-bottom:1px solid rgba(255,255,255,.14);}
 .saha-card-live{display:inline-flex;align-items:center;gap:.5rem;color:#d78bd0;font-size:8px;letter-spacing:.22em;text-transform:uppercase;}
 .saha-card-live i{display:block;width:6px;height:6px;border-radius:50%;background:#d78bd0;box-shadow:0 0 0 4px rgba(215,139,208,.18);}
@@ -901,6 +923,7 @@ main h1 *,main h2 *,main h3 *,main h4 *,main h5 *,main h6 *{
   .saha-actions{gap:.75rem;}
   .saha-primary,.saha-secondary{width:100%;justify-content:center;}
   .saha-card-facts>div{grid-template-columns:78px minmax(0,1fr);gap:.75rem;}
+  .saha-card-proof img{aspect-ratio:16 / 10;}
 }
 @media(prefers-reduced-motion:reduce){
   .saha-card,.saha-card-orbit,.saha-card-arrow,.saha-primary,.saha-secondary{transition:none;}
@@ -1180,11 +1203,11 @@ input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
 /* --- the grid: 12 columns, each card spanning to suit its cover --- */
 .rpc-grid{
   display:grid;
-  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:clamp(1rem,1.8vw,1.75rem);
-  align-items:start;
+  align-items:stretch;
 }
-.rpc-card{grid-column:span var(--span,6);min-width:0;}
+.rpc-card{min-width:0;}
 
 /* Glass, the same treatment as the Saha card: a translucent pane over the
    stage rather than a flat plum slab, with a 1px inner highlight along the top
@@ -1212,15 +1235,15 @@ input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
 }
 .rpc-link:focus-visible{outline:2px solid var(--bronze-on-dark);outline-offset:3px;}
 
-/* --- image stage: the shot keeps its own proportions, never cropped --- */
-/* The frame takes the cover's own aspect ratio, so the shot fills it edge to
-   edge: no letterbox bands, no stretching. Very tall phone captures are the one
-   exception - they are framed 3:4 from the top, which is where their content is. */
+/* --- image stage: one frame shape for every card --- */
+/* Every cover sits in the same 16:10 window, so two cards side by side are the
+   same height and no screenshot is stretched across the full wrap. Photography
+   fills the frame; screenshots are contained inside it, whole and unscaled. */
 .rpc-stage{
   display:block;
   position:relative;
   overflow:hidden;
-  aspect-ratio:var(--ratio,16 / 9);
+  aspect-ratio:16 / 10;
   border-bottom:1px solid rgba(255,255,255,.1);
   background:rgba(0,0,0,.25);
 }
@@ -1231,8 +1254,19 @@ input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
   object-fit:cover;
   transition:opacity var(--dur-slow) var(--ease);
 }
-.rpc-portrait .rpc-stage{aspect-ratio:3 / 4;}
+.rpc-portrait .rpc-stage{aspect-ratio:4 / 5;}
 .rpc-portrait .rpc-shot{object-position:center top;}
+/* A phone capture in a wide card is framed landscape and shown whole: a tall
+   frame here would make the card twice the height of its neighbour. */
+.rpc-portrait.rpc-contain .rpc-stage{aspect-ratio:16 / 10;}
+
+/* Screenshots are framed whole on a quiet backdrop: no crop through a chart,
+   and never scaled past their own pixels. */
+.rpc-contain .rpc-stage{background:rgba(255,255,255,.05);}
+.rpc-contain .rpc-shot{
+  object-fit:contain;
+  padding:clamp(.55rem,1.1vw,1rem);
+}
 .rpc-link:hover .rpc-shot{opacity:.92;}
 
 /* --- meta --- */
@@ -1290,19 +1324,14 @@ input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
 /* --- compact variant (/experience) keeps the cards, drops the header --- */
 .rpc-section-compact .rpc-head{display:none;}
 
-/* --- tablet: four columns, shapes keep their relative weight --- */
-@media(max-width:1100px){
-  .rpc-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
-  .rpc-card{grid-column:span 2;}
-  .rpc-landscape{grid-column:span 4;}
-}
-
-/* --- mobile: one column, every shot fully visible --- */
-@media(max-width:760px){
+/* --- tablet and below: one column, every shot fully visible and readable --- */
+@media(max-width:900px){
   .rpc-grid{grid-template-columns:minmax(0,1fr);gap:1.25rem;}
-  .rpc-card,.rpc-landscape{grid-column:span 1;}
+  .rpc-portrait .rpc-stage{aspect-ratio:16 / 10;}
+  .rpc-portrait .rpc-shot{object-fit:contain;padding:.55rem;object-position:center;}
   .rpc-link:hover{transform:none;}
   .rpc-stat{margin-left:0;}
+  .rpc-foot{row-gap:.75rem;}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -1563,6 +1592,35 @@ input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
   color:var(--text-on-dark);
 }
 .case-impact .eyebrow{grid-column:1/-1;margin-bottom:.4rem;color:var(--bronze-on-dark);}
+
+/* Shared section labels use the same brand highlight as the software label. */
+.eyebrow:not(.eyebrow-mark){
+  display:inline-block;
+  width:fit-content;
+  max-width:100%;
+  border-radius:2px;
+  background:#820076;
+  color:#FFFFFF;
+  font-size:14px;
+  font-weight:600;
+  line-height:1.35;
+  text-transform:uppercase;
+  padding:.12em .3em;
+}
+#top .hero-kicker{
+  display:block;
+  width:auto;
+  max-width:none;
+  border-radius:0;
+  background:transparent;
+  color:var(--bronze);
+  font-size:var(--type-caption);
+  font-weight:400;
+  letter-spacing:.22em;
+  line-height:normal;
+  text-transform:uppercase;
+  padding:0;
+}
 .case-impact strong{
   color:var(--bronze-on-dark);
   font-family:var(--font-display);
@@ -1589,6 +1647,22 @@ input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
 .case-gallery-item>div:hover{border-color:rgba(130,0,118,.3);box-shadow:0 26px 60px rgba(29,12,23,.14);}
 .case-gallery-item img{object-fit:cover;padding:0;}
 .case-gallery-item figcaption{margin-top:.8rem;color:var(--text-subtle);font-size:9px;line-height:1.5;}
+
+/* ---- screenshots: shown whole, never blown up past their own pixels ----
+   A dashboard capture is ~900px wide, so a 1380px banner frame with
+   object-fit:cover enlarges it ~1.5x and crops through the chart. These rules
+   carry a doubled class because the base .case-cover / .case-gallery-item
+   definitions appear both above and below them in this file. */
+.case-cover.case-cover-contain{width:min(92%,960px);max-height:min(74svh,760px);}
+.case-cover.case-cover-contain img{object-fit:contain;padding:clamp(.5rem,1.4vw,1.1rem);}
+/* a phone capture in a 960px frame is mostly empty frame, so it gets its own */
+.case-cover.case-cover-portrait{width:min(92%,480px);}
+.case-gallery-item.case-gallery-contain>div{aspect-ratio:16 / 10;}
+.case-gallery-item.case-gallery-contain img{object-fit:contain;padding:clamp(.4rem,1vw,.8rem);}
+@media(max-width:680px){
+  .case-cover.case-cover-contain{width:calc(100% - 2rem);max-height:68svh;}
+  .case-gallery-item.case-gallery-contain>div{aspect-ratio:4 / 3;}
+}
 
 /* ---- prev / next ---- */
 .case-next{
@@ -1627,28 +1701,78 @@ input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
    rather than being composed against the whole hero as the old wide canvas was.
    The arc is centred on her head in each case. */
 @media(max-width:1023px){
-  #top .hero-portrait{max-width:480px;}
-  #top .hero-ring{top:40%;left:50%;width:min(58%,290px);transform:translate(-50%,-50%);}
+  #top .hero-portrait{max-width:410px;}
+}
+/* Three figures side by side stop fitting as a max-content flex row well
+   before 400px, so below 600px they become an even three-column grid that
+   scales its numbers with the viewport instead of overflowing it. */
+@media(max-width:600px){
+  #top .hero-stats{display:grid;width:100%;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem;}
+  #top .hero-stat + .hero-stat{padding-left:.6rem;}
+  #top .hero-stat .display{font-size:clamp(1.3rem,6.2vw,1.8rem);}
+  #top .hero-stat p:last-child{font-size:8px;letter-spacing:.1em;line-height:1.35;}
+}
+/* the pill lands on top of the portrait once the columns stack, and a touch
+   device does not need a scroll affordance anyway */
+@media(max-width:767px){
+  #top .hero-scroll{display:none;}
 }
 @media(max-width:767px){
   #top .hero-shell{row-gap:1rem;padding-bottom:0;}
-  #top .hero-portrait{max-width:420px;}
-  #top .hero-ring{top:40%;left:50%;width:min(56%,240px);border-width:2px;}
+  #top .hero-portrait{max-width:360px;padding:0 14px 14px 0;}
+  #top .hero-portrait::before{inset:14px 0 0 14px;}
   #top > .hero-el{padding-bottom:0;}
   #top .hero-stats{gap:1.1rem;}
   #top .hero-stat + .hero-stat{padding-left:1.1rem;}
 }
-/* small phones: let her fill the column width so she does not shrink away */
+/* small phones: she keeps her proportions so the hero stays one screen tall */
 @media(max-width:480px){
-  #top .hero-portrait{max-width:none;}
-  #top .hero-ring{top:40%;left:50%;width:min(56%,210px);}
+  #top .hero-portrait{max-width:300px;}
 }
 
 @media(min-width:1024px){
-  /* she takes the full column and sits on the section's baseline */
-  #top .hero-portrait{max-width:none;width:min(100%,640px);margin:0 0 0 auto;}
-  #top .hero-ring{top:38%;left:52%;width:min(60%,360px);border-width:3px;transform:translate(-50%,-50%);}
+  /* she sits at the end of her column, on the section's baseline */
+  #top .hero-portrait{max-width:none;width:min(100%,390px);margin:0 auto;transform:translateY(-24px);}
+  #top .hero-title{line-height:.82!important;}
 }
 
 @keyframes hero-figure-in{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){#top .hero-portrait-img{animation:none;}}
+
+#top .hero-scroll{
+  position:absolute;
+  z-index:5;
+  bottom:4.1rem;
+  left:50%;
+  display:inline-flex;
+  align-items:center;
+  gap:.7rem;
+  transform:translateX(-50%);
+  border:1px solid rgba(29,12,23,.12);
+  border-radius:999px;
+  background:rgba(255,255,255,.84);
+  padding:.35rem .45rem .35rem .85rem;
+  color:var(--ink);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-decoration:none;
+  text-transform:uppercase;
+  box-shadow:0 5px 18px rgba(29,12,23,.06);
+  transition:border-color .2s ease,background .2s ease,box-shadow .2s ease;
+}
+#top .hero-scroll:hover{border-color:rgba(130,0,118,.3);background:#fff;box-shadow:0 8px 22px rgba(29,12,23,.1);}
+#top .hero-scroll-arrow{
+  display:grid;
+  width:26px;
+  height:26px;
+  place-items:center;
+  border-radius:50%;
+  background:#820076;
+  color:#fff;
+  font-size:14px;
+  line-height:1;
+  animation:hero-scroll-bob 1.4s ease-in-out infinite;
+}
+@keyframes hero-scroll-bob{50%{transform:translateY(2px);}}
+@media(prefers-reduced-motion:reduce){#top .hero-scroll-arrow{animation:none;}}

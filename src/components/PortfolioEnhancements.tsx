@@ -181,7 +181,7 @@ export default function PortfolioEnhancements() {
       const message = String(values.get("message") ?? "");
       const email = String(values.get("email") ?? "");
       const bodyText = `Name: ${fullName}\nEmail: ${email}\n\n${message}`;
-      window.location.href = `mailto:yumnahzahid2001@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+      window.location.href = `mailto:yumnahz2001@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
     };
     contactForm?.addEventListener("submit", onContactSubmit);
 

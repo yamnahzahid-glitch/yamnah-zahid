@@ -8,15 +8,15 @@ import ResumeViewer from "@/components/ResumeViewer";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "Resume | Yumnah Zahid — Marketing & Creative",
+  title: "Resume | Yumnah Zahid — Campaign Strategist",
   description:
-    "Preview or download the resume of Yumnah Zahid — marketing and creative professional working across campaigns, content, and brand storytelling.",
+    "Preview or download the resume of Yumnah Zahid — campaign strategist and content systems lead working across campaigns, AI content systems, and stakeholder communication.",
   alternates: { canonical: "/resume" },
   openGraph: {
     type: "profile",
     url: "/resume",
-    title: "Resume | Yumnah Zahid — Marketing & Creative",
-    description: "Preview or download the resume of Yumnah Zahid: marketing strategy, creative campaigns, AI-led content, and climate communication.",
+    title: "Resume | Yumnah Zahid — Campaign Strategist",
+    description: "Preview or download the resume of Yumnah Zahid: campaign strategy, AI content systems, stakeholder engagement, and climate communication.",
     images: [{ url: "/photos/resume-hero.webp" }],
   },
 };
@@ -61,7 +61,7 @@ export default function ResumePage() {
               <a className="resume-ghost" href="https://www.linkedin.com/in/yumnah-zahid-741429285/" target="_blank" rel="noopener noreferrer">
                 LinkedIn <span aria-hidden="true">↗</span>
               </a>
-              <a className="resume-ghost" href="mailto:yumnahzahid2001@gmail.com">
+              <a className="resume-ghost" href="mailto:yumnahz2001@gmail.com">
                 Email <span aria-hidden="true">↗</span>
               </a>
             </div>
@@ -75,8 +75,8 @@ export default function ResumePage() {
             pageGraph({
               type: "ProfilePage",
               path: "/resume",
-              name: "Resume | Yumnah Zahid — Marketing & Creative",
-              description: "Preview or download the resume of Yumnah Zahid: marketing strategy, creative campaigns, AI-led content, and climate communication.",
+              name: "Resume | Yumnah Zahid — Campaign Strategist",
+              description: "Preview or download the resume of Yumnah Zahid: campaign strategy, AI content systems, stakeholder engagement, and climate communication.",
               image: "/photos/resume-hero.webp",
             }),
           ),

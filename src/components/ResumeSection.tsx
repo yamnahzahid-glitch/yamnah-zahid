@@ -9,8 +9,8 @@ type ResumeSectionProps = {
 };
 
 const facts = [
-  { label: "Role", value: "Marketing & Creative" },
-  { label: "Based in", value: "Karachi, Pakistan" },
+  { label: "Role", value: "Campaign Strategist" },
+  { label: "Based in", value: "Islamabad, Pakistan" },
   { label: "Format", value: "PDF · One page" },
 ];
 
@@ -23,7 +23,7 @@ export default function ResumeSection({
       <em>on one page.</em>
     </>
   ),
-  copy = "Campaigns, content, and brand work — with the roles, results, and tools behind them. Preview it in the browser or keep a copy for later.",
+  copy = "Campaigns, content systems, and stakeholder work — with the roles, results, and tools behind them. Preview it in the browser or keep a copy for later.",
   note = "Updated 2026",
 }: ResumeSectionProps) {
   return (

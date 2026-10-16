@@ -23,7 +23,7 @@ export function SiteHeader() {
           )}
         </nav>
         <div className="hidden items-center gap-7 xl:flex">
-          <span className="nav-meta">Karachi, PK <span className="mx-2 text-ink/25">—</span><span id="clock" /></span>
+          <span className="nav-meta">Islamabad, PK <span className="mx-2 text-ink/25">—</span><span id="clock" /></span>
           <Link href="/contact" className="nav-cta">Let’s talk <span aria-hidden="true">↗</span></Link>
         </div>
         <button
@@ -85,7 +85,7 @@ export function SiteFooter() {
         </div>
         <div className="flex flex-col gap-2 border-t border-paper/15 py-5 text-[11px] text-paper/50 sm:flex-row sm:items-center sm:justify-between">
           <span>© 2026 Yumnah Zahid. All rights reserved.</span>
-          <span>Marketing strategy &amp; creative direction <span className="mx-2 text-bronze">●</span> Karachi, Pakistan</span>
+          <span>Campaign strategy &amp; content systems <span className="mx-2 text-bronze">●</span> Islamabad, Pakistan</span>
         </div>
       </div>
     </footer>

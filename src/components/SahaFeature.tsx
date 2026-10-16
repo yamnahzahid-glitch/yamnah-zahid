@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
+import { blurFor } from "@/lib/blur";
 
 const facts = [
-  { label: "Focus", value: "Climate communication" },
-  { label: "Work", value: "Research & advocacy" },
-  { label: "Milestone", value: "Youth Climate Communiqué · CVF–V20" },
+  { label: "Began", value: "Drought-stress research, lentils" },
+  { label: "Dialogue", value: "Youth Roundtable · CVF–V20, Sept 2025" },
+  { label: "Carried to", value: "Youth Climate Communiqué · COP30" },
 ];
 
 export default function SahaFeature() {
@@ -14,18 +16,19 @@ export default function SahaFeature() {
           <div className="saha-copy fade-up">
             <p className="eyebrow saha-eyebrow">Independent project</p>
             <h2 className="display saha-title" id="saha-title">
-              Saha — climate research,
+              Climate is a question
               <br />
-              <em>made liveable.</em>
+              <em>of how we live.</em>
             </h2>
             <p className="saha-lede">
-              A platform built to close the gap between climate research and daily life — turning evidence
-              on food, water, and changing seasons into something people can actually use, with advocacy
-              work carried into the CVF–V20 conversation ahead of COP30.
+              My interest in climate change began in science, but it didn’t stay in the laboratory — it
+              moved into advocacy, and then into a product. Saha translates climate intelligence into
+              something closer to everyday life: how a changing climate affects homes, routines and
+              communities, and what people can do about it.
             </p>
 
             <div className="saha-actions">
-              <a className="saha-primary" href="https://sahaclimate.com" target="_blank" rel="noopener noreferrer">
+              <a className="saha-primary" href="https://www.sahaclimate.com/" target="_blank" rel="noopener noreferrer">
                 Visit sahaclimate.com <span aria-hidden="true">↗</span>
               </a>
               <Link className="saha-secondary" href="/experience/saha-climate-platform">
@@ -36,7 +39,7 @@ export default function SahaFeature() {
 
           <a
             className="saha-card fade-up"
-            href="https://sahaclimate.com"
+            href="https://www.sahaclimate.com/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit sahaclimate.com"
@@ -49,6 +52,19 @@ export default function SahaFeature() {
                 <ellipse cx="100" cy="100" rx="78" ry="30" strokeWidth=".75" opacity=".35" />
                 <ellipse cx="100" cy="100" rx="30" ry="78" strokeWidth=".75" opacity=".2" />
               </svg>
+            </span>
+
+            <span className="saha-card-proof">
+              <Image
+                src="/projects/saha-1.png"
+                alt="CVF–V20 correspondence inviting review of the Youth Communiqué ahead of COP30"
+                width={360}
+                height={781}
+                sizes="(max-width: 900px) 88vw, 34vw"
+                placeholder="blur"
+                blurDataURL={blurFor("/projects/saha-1.png")}
+              />
+              <span className="saha-card-proof-cap">CVF–V20 · Youth Communiqué correspondence</span>
             </span>
 
             <span className="saha-card-head">

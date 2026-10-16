@@ -9,14 +9,14 @@ import { projectCases } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Experience & Project Case Studies | Yumnah Zahid",
-  description: "Explore campaign, content, PR, brand film, and climate communication case studies by Yumnah Zahid.",
+  description: "Explore campaign strategy, AI content system, creator outreach, brand film, and climate communication case studies by Yumnah Zahid.",
   alternates: { canonical: "/experience" },
   openGraph: {
     type: "profile",
     url: "/experience",
     title: "Experience & Project Case Studies | Yumnah Zahid",
-    description: "Campaign, content, PR, brand film, and climate communication case studies by Yumnah Zahid.",
-    images: [{ url: "/projects/believability-4.png" }],
+    description: "Campaign strategy, AI content systems, creator outreach, brand film, and climate communication case studies by Yumnah Zahid.",
+    images: [{ url: "/projects/meta-smartwatches.jpg" }],
   },
 };
 
@@ -27,7 +27,7 @@ const facts = [
 ];
 
 /** The three covers that read best small, stacked as a deck. */
-const deck = ["asli-warranty-challenge", "fikrfree-jazz-brand-film", "saha-climate-platform"]
+const deck = ["ai-product-content-initiative", "saha-climate-platform", "rox-more-than-a-network"]
   .map((slug) => projectCases.find((project) => project.slug === slug))
   .filter((project): project is (typeof projectCases)[number] => Boolean(project));
 
@@ -42,8 +42,9 @@ export default function ExperiencePage() {
               <p className="eyebrow">Experience</p>
               <h1 className="display">Ideas into <em>impact.</em></h1>
               <p className="xhero-lede">
-                Selected work across marketing strategy, creative campaigns, public relations, and climate
-                communication. Open a case study to see the brief, the approach, and what it delivered.
+                Two tracks: behaviour and growth systems — marketing built like an experiment — and
+                culture and creative systems, ideas that have to survive outside the deck. Open a case
+                study to see the signal, the thinking, and what moved.
               </p>
 
               <dl className="xhero-facts">
@@ -89,8 +90,8 @@ export default function ExperiencePage() {
               type: "CollectionPage",
               path: "/experience",
               name: "Experience & Project Case Studies | Yumnah Zahid",
-              description: "Campaign, content, PR, brand film, and climate communication case studies by Yumnah Zahid.",
-              image: "/projects/believability-4.png",
+              description: "Campaign strategy, AI content systems, creator outreach, brand film, and climate communication case studies by Yumnah Zahid.",
+              image: "/projects/meta-smartwatches.jpg",
             }),
           ),
         }}

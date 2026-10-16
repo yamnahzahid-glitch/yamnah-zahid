@@ -9,19 +9,19 @@ export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://yumnahzahid.
 export const site = {
   name: "Yumnah Zahid",
   shortName: "Yumnah Zahid",
-  jobTitle: "Marketing & Creative Strategist",
-  tagline: "Marketing & Creative Portfolio",
+  jobTitle: "Campaign Strategist & Content Systems Lead",
+  tagline: "Campaign Strategist & Content Systems Lead",
   description:
-    "Yumnah Zahid is a marketing and creative professional in Karachi, building brand stories, AI-powered content, and campaigns that connect with people.",
-  email: "yumnahzahid2001@gmail.com",
+    "Yumnah Zahid, strategic communications and campaign specialist. Trust architecture, AI-driven content systems, and stakeholder-led narrative building.",
+  email: "yumnahz2001@gmail.com",
   phone: "+92-336-1273335",
-  locality: "Karachi",
+  locality: "Islamabad",
   country: "PK",
   locale: "en_PK",
   image: "/photos/portrait-hero.jpg",
   profiles: [
     "https://www.linkedin.com/in/yumnah-zahid-741429285/",
-    "https://sahaclimate.com",
+    "https://www.sahaclimate.com/",
   ],
 } as const;
 
@@ -55,11 +55,13 @@ export function siteGraph() {
           addressCountry: site.country,
         },
         knowsAbout: [
-          "Brand storytelling",
           "Campaign strategy",
-          "AI-assisted content production",
-          "Influencer marketing",
-          "Public relations",
+          "Funnel and conversion strategy",
+          "AI content production",
+          "Stakeholder engagement",
+          "Audience segmentation",
+          "Performance analytics",
+          "PR and vendor management",
           "Climate communication",
         ],
         sameAs: [...site.profiles],

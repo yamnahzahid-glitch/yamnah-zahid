@@ -13,13 +13,13 @@ function SocialLinks() {
     <div className="contact-socials" aria-label="Social media links">
       <span className="contact-socials-label">Connect:</span>
       <a className="contact-social-link social-linkedin" href="https://www.linkedin.com/in/yumnah-zahid-741429285/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6.5 9v9M6.5 6.5v.1M10.5 18v-9m0 4a4 4 0 0 1 8 0v5" /><circle cx="6.5" cy="6.5" r="1" /></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.337 7.433a2.062 2.062 0 1 0 0-4.124 2.062 2.062 0 0 0 0 4.124ZM3.555 9h3.564v11.452H3.555zM9.35 9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35z" /></svg>
       </a>
-      <a className="contact-social-link social-mail" href="mailto:yumnahzahid2001@gmail.com" aria-label="Email">
+      <a className="contact-social-link social-mail" href="mailto:yumnahz2001@gmail.com" aria-label="Email">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
       </a>
       <a className="contact-social-link social-whatsapp" href="https://wa.me/923361273335" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L3 20l1.2-4.8a8.2 8.2 0 1 1 16-3.5Z" /><path d="M9 8.5c.3-.6.6-.6 1-.6h.4c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .6.5.8 1.2 1.4 2 1.9.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.3.4.5 0 .4-.2 1.1-.6 1.4-.5.5-1.2.7-2 .6-1.1-.2-2.4-.8-3.7-2-1.5-1.4-2.3-2.9-2.5-4-.1-.8.1-1.3.7-1.6Z" /></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.94 9.94 0 0 0-8.53 15.04L2 22l5.12-1.34A9.94 9.94 0 1 0 12.04 2Zm0 18.05a8.08 8.08 0 0 1-4.12-1.13l-.3-.18-3.04.8.81-2.96-.2-.31A8.1 8.1 0 1 1 12.04 20.05Zm4.45-6.06c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.74-1.79-.2-.47-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.15 1.51.09.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z" /></svg>
       </a>
     </div>
   );
@@ -43,15 +43,15 @@ export default function ContactSection({ standalone = false }: { standalone?: bo
         <div className="contact-copy lg:pl-2">
           <Eyebrow className="mb-5 text-bronze">Contact</Eyebrow>
           <h2 className="display">Let’s make<br /><em>something matter.</em></h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed">Have a project, campaign, or story in mind? Share a few details and I’ll be glad to talk through how we can bring it to life.</p>
+          <p className="mt-6 max-w-xl text-base leading-relaxed">Open to communications, campaign strategy and content-systems roles, particularly in development and climate work. Share a few details about your campaign or brief and I’ll be glad to talk it through.</p>
           <div className="mt-9 space-y-5">
-            <a href="mailto:yumnahzahid2001@gmail.com" className="group flex items-center gap-4">
+            <a href="mailto:yumnahz2001@gmail.com" className="group flex items-center gap-4">
               <ContactIcon><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg></ContactIcon>
-              <span><span className="block text-sm text-ink/55">Email</span><span className="mt-1 block font-medium text-ink transition-colors group-hover:text-bronze">yumnahzahid2001@gmail.com</span></span>
+              <span><span className="block text-sm text-ink/55">Email</span><span className="mt-1 block font-medium text-ink transition-colors group-hover:text-bronze">yumnahz2001@gmail.com</span></span>
             </a>
             <div className="flex items-center gap-4">
               <ContactIcon><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg></ContactIcon>
-              <span><span className="block text-sm text-ink/55">Based in</span><span className="mt-1 block font-medium text-ink">Karachi, Pakistan</span></span>
+              <span><span className="block text-sm text-ink/55">Based in</span><span className="mt-1 block font-medium text-ink">Islamabad, Pakistan</span></span>
             </div>
             <a href="https://wa.me/923361273335" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
               <ContactIcon><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L3 20l1.2-4.8a8.2 8.2 0 1 1 16-3.5Z" /></svg></ContactIcon>

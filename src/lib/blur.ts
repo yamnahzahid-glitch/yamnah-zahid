@@ -4,10 +4,12 @@
  * slow network shows a soft colour impression instead of an empty frame.
  */
 export const blurPlaceholders: Record<string, string> = {
+  "/photos/Hamnah-zahid.png":
+    "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoHAAwAAwBSJZQCw7D0pO/2nAAA/vb6l4POS9e9rqomuiOUd62ch/tLqI/+zxkgjTxTXqTHV/UAAA==",
   "/photos/Hamnah-zahid.webp":
     "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAQCdASoIAAwAAwBSJQBOgB57cVfFjAD+9BIR2UKIOzXAQUYKCjLCMnb7PA1N5OUhumJz6p+/zFspuz8zyU+nL9EF7E14YSJox6Ii7gSQMwTWPadiQAAA",
   "/photos/elegant-yamnah-zahid-figure.png":
-    "data:image/webp;base64,UklGRvoAAABXRUJQVlA4WAoAAAAQAAAACwAACQAAQUxQSGsAAAABcFNt27I83/f957BZCfcqJGCDDNDBc7jvvrEx20aA318eLERETAAUTPucgwYAgwZ5ikDhd0ObdRhAQW/pB0EVBgrJK0OPLVhA8clQAl4SUGjSFZGAQwsY0xcR8VhD9MHwx+fCqgSvP+JzAABWUDggaAAAAFACAJ0BKgwACgADAFIlkAJ0Bit0tbiL9H8GgAD+wnGvkJab9WmAG2oNAaazUNh8MXAK1bHt8tr3/DdwuH98HdDyXRGCb9deLMTw5g+4x9EJz+HvTfGsEXOGHeKFrg7fU9rnYQhe6AAA",
+    "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoHAAwAAwBSJZgCdAEOuG9bggAA+6RcFUsAz5Nt44OpHTpWu0uB+f9rT5lI8II28qp82GF9yhZFD3XrS0PFuk/kvHtwAA==",
   "/photos/portrait-about.jpg":
     "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABQAgCdASoIAAwAAwBSJaACdAYqDy387eqKQAAA8p/SzOvFwPEWd1E5porNraXVwhjgJqpRDKymWJOTTV8kwpuhEAir4pmrcuGY3K8wyI2NugAA",
   "/photos/portrait-hero.jpg":
@@ -32,6 +34,16 @@ export const blurPlaceholders: Record<string, string> = {
     "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoHAAwAAwBSJQBOgCHgICspsAD+9cDq0K34PgiU4sEr5F3a+/64Y8KMq7WsV4eU/r+V63dyiuTCBrXseOIk890zADksOAAA",
   "/projects/fikrfree-2.jpg":
     "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoHAAwAAwBSJagCdAD0PnesoAAA/uYI8En5VelQJrFFgiwMdyfB9GbLxLB/pHWeyvkbRJfGIJ7V2qa0+7PYjIuAAAA=",
+  "/projects/meta-catalog.jpg":
+    "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAABwAQCdASoMAAgAAwBSJaV9qAGIAAD+9geOodWMnmBTx4dgAAA=",
+  "/projects/meta-hair-straightener.jpg":
+    "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAAAwAQCdASoMAAgAAwBSJZwAA3AA/vWlieRPyEUv5xzYQAAA",
+  "/projects/meta-smart-watches.jpg":
+    "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAAAwAQCdASoMAAgAAwBSJaQAA3AA/vWr+DCbUyNcsJh/iQAA",
+  "/projects/meta-smartwatches.jpg":
+    "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACQAQCdASoMAAkAAwBSJZwAAudHxMAA/vgIBkLGTCOHeF0ROH7rAAAA",
+  "/projects/meta-trimmers.jpg":
+    "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAADwAQCdASoMAAgAAwBSJaQAAu1/FsubfgAA/vf2O3JC4BxiMAAAAA==",
   "/projects/rox-1.jpg":
     "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoHAAwAAwBSJYwCw7EOaM+SAAD++VFCorAl29ne70XUFmYgPzWNZRRxIAA=",
   "/projects/rox-2.jpg":

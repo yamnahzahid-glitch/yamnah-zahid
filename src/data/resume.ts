@@ -5,9 +5,9 @@
 
 export const resumeProfile = {
   name: "Yumnah Zahid",
-  title: "Marketing Specialist",
+  title: "Campaign Strategist & Content Systems Lead",
   summary:
-    "Creative marketer leading brand storytelling, campaign ideation, and cross-functional work in fast-paced agency environments — turning complex briefs into audience-focused campaigns.",
+    "Strategic communications and campaign specialist: trust architecture, AI-driven content systems, and stakeholder-led narrative building across paid, owned and earned channels.",
   email: "yumnahz2001@gmail.com",
   phone: "+92 336 1273335",
   location: "Islamabad, Pakistan",
@@ -19,11 +19,11 @@ export const resumeExperience = [
   {
     period: "Dec 2025 — Present",
     role: "Marketing Specialist",
-    company: "Priceoye, Islamabad",
+    company: "PriceOye, Islamabad",
     points: [
-      "Led a team of 3 on an AI-driven product content initiative",
-      "Drove a 21% lift in daily orders; conversion to 1%",
-      "Ran the PayPak × PriceOye and Asli Warranty campaigns",
+      "Led a team of 3 on an AI product content initiative",
+      "200 SKUs rebuilt; daily orders up 21%, conversion to 1%",
+      "Asli Warranty and PayPak × PriceOye campaigns; PR outreach",
     ],
   },
   {
@@ -31,49 +31,49 @@ export const resumeExperience = [
     role: "Creative Executive",
     company: "Fishbowl Agency, Islamabad",
     points: [
-      "Content and storytelling for the Jazz Business vertical",
-      "Ideated DVCs, social campaigns, and brand activations",
-      "Turned briefs for Garaj, Rox, FikrFree and Dealo into work",
+      "Content across media platforms for a leading telecom client",
+      "Turned client briefs into advertising concepts for DVCs",
+      "Social and integrated brand activations",
     ],
   },
   {
     period: "Sept 2023 — Jul 2024",
-    role: "Intern, HR · Project Trainee",
-    company: "FFBL Power Company · Foodpanda",
+    role: "Project Trainee · HR Intern",
+    company: "Foodpanda · FFBL Power Company",
     points: [
-      "Research and vendor talks for the FPCL Learning Hub",
-      "Launched the translated APAC Rider App",
+      "Tracked training KPIs; launched the translated APAC Rider App",
+      "Coordinated the FPCL Learning Hub and Summer Training",
     ],
   },
 ];
 
 export const resumeEducation = [
   {
-    period: "Jan 2024 — Present",
+    period: "2024 — 2026",
     degree: "MSc Project Management",
     school: "Arden University, Coventry, UK",
   },
   {
-    period: "Aug 2019 — Jul 2023",
-    degree: "BS Biological Sciences",
-    school: "COMSATS University, Islamabad",
+    period: "2019 — 2023",
+    degree: "BSc Biological Sciences",
+    school: "COMSATS, Islamabad",
   },
 ];
 
 export const resumeSkills = [
-  "Brand storytelling",
-  "Campaign ideation",
-  "Content strategy",
-  "Influencer & UGC",
-  "PR outreach",
-  "Competitor research",
+  "Campaign strategy",
+  "Funnel & conversion",
+  "Stakeholder engagement",
+  "Creative governance",
+  "Audience segmentation",
+  "PR & vendor management",
 ];
 
 export const resumeTools = [
-  "Power BI",
-  "Excel",
-  "Google Analytics",
-  "Meta Ads Manager",
+  "ImagineArt",
+  "ChatGPT",
   "Canva",
   "Figma",
+  "Power BI",
+  "Excel",
 ];

@@ -3,12 +3,11 @@
 import { useEffect, useState } from "react";
 
 const descriptions = [
-  "brand storyteller",
-  "strategist marketer",
+  "campaign strategist",
+  "content systems lead",
+  "communications specialist",
   "researcher",
-  "creator",
-  "content strategist",
-  "communicator",
+  "climate communicator",
 ];
 
 export default function RotatingAboutLine() {

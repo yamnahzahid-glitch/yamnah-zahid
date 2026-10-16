@@ -91,10 +91,10 @@ export default async function ProjectDetailPage({ params }: Props) {
         </div>
 
         <figure
-          className="case-cover"
+          className={`case-cover${project.cover.fit === "contain" ? " case-cover-contain" : ""}${project.cover.orientation === "portrait" ? " case-cover-portrait" : ""}`}
           style={{ "--ratio": `${project.cover.width} / ${project.cover.height}` } as React.CSSProperties}
         >
-          <Image src={project.cover.src} alt={project.cover.alt} fill priority sizes="(max-width: 900px) 100vw, 90vw" placeholder="blur" blurDataURL={blurFor(project.cover.src)} />
+          <Image src={project.cover.src} alt={project.cover.alt} fill priority sizes="(max-width: 900px) 100vw, 1040px" placeholder="blur" blurDataURL={blurFor(project.cover.src)} />
           {project.cover.caption && <figcaption>{project.cover.caption}</figcaption>}
         </figure>
 
@@ -180,7 +180,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               <div className="case-gallery-grid">
                 {project.gallery.map((item) => (
                   <figure
-                    className="case-gallery-item"
+                    className={`case-gallery-item${item.fit === "contain" ? " case-gallery-contain" : ""}`}
                     key={item.src}
                     style={{ "--ratio": `${item.width} / ${item.height}` } as React.CSSProperties}
                   >
